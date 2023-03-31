@@ -221,6 +221,17 @@ docker_setup_env() {
 	# No MYSQL_ compatibility needed for new variables
 	file_env 'MARIADB_PASSWORD_HASH'
 	file_env 'MARIADB_ROOT_PASSWORD_HASH'
+	# env variables related to replication
+	file_env 'MARIADB_REPLICATION_MODE'
+	file_env 'MARIADB_REPLICATION_USER'
+	file_env 'MARIADB_REPLICATION_PASSWORD'
+	file_env 'MARIADB_REPLICATION_PASSWORD_FILE'
+	# env variables related to master
+	file_env 'MARIADB_MASTER_HOST'
+	file_env 'MARIADB_MASTER_ROOT_USER'
+	file_env 'MARIADB_MASTER_PORT_NUMBER'
+	file_env 'MARIADB_MASTER_ROOT_PASSWORD'
+	file_env 'MARIADB_MASTER_ROOT_PASSWORD_FILE'
 
 	# set MARIADB_ from MYSQL_ when it is unset and then make them the same value
 	: "${MARIADB_ALLOW_EMPTY_ROOT_PASSWORD:=${MYSQL_ALLOW_EMPTY_PASSWORD:-}}"
